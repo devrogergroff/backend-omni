@@ -1,0 +1,32 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type QueueChatOrderByInput = {
+  action?: SortOrder;
+  assunto?: SortOrder;
+  ativo?: SortOrder;
+  createdAt?: SortOrder;
+  dadosAdicionais?: SortOrder;
+  dataFim?: SortOrder;
+  dataHoraLastMsg?: SortOrder;
+  dataIni?: SortOrder;
+  email?: SortOrder;
+  fromAgente?: SortOrder;
+  fromFila?: SortOrder;
+  fromId?: SortOrder;
+  fromMotivo?: SortOrder;
+  fromName?: SortOrder;
+  id?: SortOrder;
+  idCliente?: SortOrder;
+  linkedid?: SortOrder;
+  newstate?: SortOrder;
+  paiId?: SortOrder;
+  qtdMsg?: SortOrder;
+  qtdMsgNaoLidas?: SortOrder;
+  queue?: SortOrder;
+  queueFrom?: SortOrder;
+  queueTypeId?: SortOrder;
+  sentido?: SortOrder;
+  status?: SortOrder;
+  ultimoAgente?: SortOrder;
+  updatedAt?: SortOrder;
+};

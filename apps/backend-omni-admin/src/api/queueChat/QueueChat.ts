@@ -1,0 +1,34 @@
+import { JsonValue } from "type-fest";
+import { QueueChatMessage } from "../queueChatMessage/QueueChatMessage";
+
+export type QueueChat = {
+  action: string | null;
+  assunto: string | null;
+  ativo: boolean | null;
+  createdAt: Date;
+  dadosAdicionais: JsonValue;
+  dataFim: Date | null;
+  dataHoraLastMsg: Date | null;
+  dataIni: Date | null;
+  email: string | null;
+  fromAgente: string | null;
+  fromFila: string | null;
+  fromId: string | null;
+  fromMotivo: string | null;
+  fromName: string | null;
+  id: string;
+  idCliente: number | null;
+  linkedid: string | null;
+  newstate: boolean | null;
+  paiId: number | null;
+  qtdMsg: number | null;
+  qtdMsgNaoLidas: number | null;
+  queue: string | null;
+  queueChatMessages?: Array<QueueChatMessage>;
+  queueFrom: string | null;
+  queueTypeId: number | null;
+  sentido: string | null;
+  status?: "Option1" | null;
+  ultimoAgente: string | null;
+  updatedAt: Date;
+};

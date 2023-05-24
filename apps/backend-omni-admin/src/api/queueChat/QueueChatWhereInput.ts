@@ -1,0 +1,37 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { JsonFilter } from "../../util/JsonFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { QueueChatMessageListRelationFilter } from "../queueChatMessage/QueueChatMessageListRelationFilter";
+
+export type QueueChatWhereInput = {
+  action?: StringNullableFilter;
+  assunto?: StringNullableFilter;
+  ativo?: BooleanNullableFilter;
+  dadosAdicionais?: JsonFilter;
+  dataFim?: DateTimeNullableFilter;
+  dataHoraLastMsg?: DateTimeNullableFilter;
+  dataIni?: DateTimeNullableFilter;
+  email?: StringNullableFilter;
+  fromAgente?: StringNullableFilter;
+  fromFila?: StringNullableFilter;
+  fromId?: StringNullableFilter;
+  fromMotivo?: StringNullableFilter;
+  fromName?: StringNullableFilter;
+  id?: StringFilter;
+  idCliente?: IntNullableFilter;
+  linkedid?: StringNullableFilter;
+  newstate?: BooleanNullableFilter;
+  paiId?: IntNullableFilter;
+  qtdMsg?: IntNullableFilter;
+  qtdMsgNaoLidas?: IntNullableFilter;
+  queue?: StringNullableFilter;
+  queueChatMessages?: QueueChatMessageListRelationFilter;
+  queueFrom?: StringNullableFilter;
+  queueTypeId?: IntNullableFilter;
+  sentido?: StringNullableFilter;
+  status?: "Option1";
+  ultimoAgente?: StringNullableFilter;
+};
