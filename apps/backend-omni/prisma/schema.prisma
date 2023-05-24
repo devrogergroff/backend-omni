@@ -1,0 +1,89 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model QueueChat {
+  action            String?
+  assunto           String?
+  ativo             Boolean?
+  createdAt         DateTime             @default(now())
+  dadosAdicionais   Json?
+  dataFim           DateTime?
+  dataHoraLastMsg   DateTime?
+  dataIni           DateTime?
+  email             String?
+  fromAgente        String?
+  fromFila          String?
+  fromId            String?
+  fromMotivo        String?
+  fromName          String?
+  id                String               @id @default(cuid())
+  idCliente         Int?
+  linkedid          String?
+  newstate          Boolean?
+  paiId             Int?
+  qtdMsg            Int?
+  qtdMsgNaoLidas    Int?
+  queue             String?
+  queueChatMessages QueueChatMessage[]
+  queueFrom         String?
+  queueTypeId       Int?
+  sentido           String?
+  status            EnumQueueChatStatus?
+  ultimoAgente      String?
+  updatedAt         DateTime             @updatedAt
+}
+
+model Agente {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QueueChatMessage {
+  agente              String?
+  dadosAdicionais     Json?
+  dataHora            DateTime?
+  id                  String                      @id @default(cuid())
+  idQueueChat         QueueChat                   @relation(fields: [idQueueChatId], references: [id])
+  idQueueChatId       String                      @unique
+  inOut               Int?
+  mailMessageId       Int?
+  queueAnexosMesssage QueueAnexo[]
+  quotedMsg           Json?
+  repliedIdMsg        Int?
+  status              EnumQueueChatMessageStatus?
+  texto               String?
+}
+
+model QueueAnexo {
+  caminho     String?
+  id          String            @id @default(cuid())
+  idMessage   QueueChatMessage? @relation(fields: [idMessageId], references: [id])
+  idMessageId String?
+  mimeType    String?
+}
+
+enum EnumQueueChatStatus {
+  Option1
+}
+
+enum EnumQueueChatMessageStatus {
+  Option1
+}
